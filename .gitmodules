@@ -1,0 +1,3 @@
+[submodule "lib/FMWWLibrary"]
+	path = lib/FMWWLibrary
+	url = https://github.com/GangDuo/FMWWLibrary.git
