@@ -41,11 +41,18 @@ namespace RSVForTagPrint.Helpers
 
         public static void OpenPrintPreviewWithIE(string code)
         {
-            var args = String.Format("/year:{0} /month:{1} /day:{2} /code:{3}",
-                                     DateTime.Today.Year,
-                                     DateTime.Today.Month,
-                                     DateTime.Today.Day,
-                                     code);
+            var args = String.Format(
+                "/year:{0} /month:{1} /day:{2} /code:{3} /hostname:{4} /access-key-id:{5} /user-name:{6} /secret-access-key:{7} /password:{8}",
+                DateTime.Today.Year,
+                DateTime.Today.Month,
+                DateTime.Today.Day,
+                code,
+                Environment.GetEnvironmentVariable("FMWW_HOST_NAME"),
+                Environment.GetEnvironmentVariable("FMWW_ACCESS_KEY_ID"),
+                Environment.GetEnvironmentVariable("FMWW_USER_NAME"),
+                Environment.GetEnvironmentVariable("FMWW_SECRET_ACCESS_KEY"),
+                Environment.GetEnvironmentVariable("FMWW_PASSWORD")
+            );
             Console.WriteLine(String.Format("印刷ｺｰﾄﾞ = {0}", code));
             using (var hProcess = System.Diagnostics.Process.Start(new System.Diagnostics.ProcessStartInfo()
             {
