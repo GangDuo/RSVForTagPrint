@@ -17,7 +17,11 @@
     <Grid Margin="10">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
-            <RowDefinition Height="10" />
+            <RowDefinition Height="5" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="5" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="20" />
             <RowDefinition Height="Auto" />
             <RowDefinition Height="10" />
             <RowDefinition Height="Auto" />
@@ -31,28 +35,40 @@
         </Grid.ColumnDefinitions>
 
         <Label Grid.Row="0" Grid.Column="0"
-               Content="UserCode" />
-        <TextBox Grid.Row="0" Grid.Column="1"
-                 x:Name="textBox1"
-                 Text="{Binding Preference.Group, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
-        <Label Grid.Row="0" Grid.Column="2"
-               Content="-" />
-        <TextBox Grid.Row="0" Grid.Column="3"
-                 x:Name="textBox2"
-                 Text="{Binding Preference.GroupPassword, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+               Content="ホスト名" />
+        <TextBox Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="3"
+                 x:Name="textBox5"
+                 Text="{Binding Preference.HostName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
 
         <Label Grid.Row="2" Grid.Column="0"
-               Content="UserPass" />
+               Content="UserCode" />
         <TextBox Grid.Row="2" Grid.Column="1"
-                 x:Name="textBox3"
-                 Text="{Binding Preference.User, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                 x:Name="textBox1"
+                 Text="{Binding Preference.Group, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
         <Label Grid.Row="2" Grid.Column="2"
                Content="-" />
         <TextBox Grid.Row="2" Grid.Column="3"
+                 x:Name="textBox2"
+                 Text="{Binding Preference.GroupPassword, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+
+        <Label Grid.Row="4" Grid.Column="0"
+               Content="UserPass" />
+        <TextBox Grid.Row="4" Grid.Column="1"
+                 x:Name="textBox3"
+                 Text="{Binding Preference.User, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+        <Label Grid.Row="4" Grid.Column="2"
+               Content="-" />
+        <TextBox Grid.Row="4" Grid.Column="3"
                  x:Name="textBox4"
                  Text="{Binding Preference.UserPassword, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
 
-        <StackPanel Orientation="Horizontal" Grid.Row="4" Grid.ColumnSpan="4" HorizontalAlignment="Center">
+        <Label Grid.Row="6" Grid.Column="0"
+               Content="APIサーバー" />
+        <TextBox Grid.Row="6" Grid.Column="1" Grid.ColumnSpan="3"
+                 x:Name="textBox6"
+                 Text="{Binding Preference.ApiServer, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+
+        <StackPanel Orientation="Horizontal" Grid.Row="8" Grid.ColumnSpan="4" HorizontalAlignment="Center">
             <Button Width="100"
                     Content="OK" 
                     Command="{Binding OKCommand}"/>
