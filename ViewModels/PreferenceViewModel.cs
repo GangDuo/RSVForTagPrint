@@ -81,11 +81,21 @@ namespace RSVForTagPrint.ViewModels
 
         public PreferenceViewModel()
         {
-            this.Preference = new Models.Preference();
+            this.Preference = new Models.Preference()
+            {
+                HostName = Properties.Settings.Default.FmwwHostName,
+                Group = Properties.Settings.Default.FmwwAccessKeyId,
+                User = Properties.Settings.Default.FmwwUserName,
+                ApiServer = Properties.Settings.Default.VirgoApiUri,
+            };
 
             this.CancelCommand = new DelegateCommand(() =>
             {
-                Debug.WriteLine("CancelCommand");
+                Preference.HostName = Properties.Settings.Default.FmwwHostName;
+                Preference.Group = Properties.Settings.Default.FmwwAccessKeyId;
+                Preference.User = Properties.Settings.Default.FmwwUserName;
+                Preference.ApiServer = Properties.Settings.Default.VirgoApiUri;
+
                 Preference.GroupPassword = Password.Read(CNGroupPassword);
                 Preference.UserPassword = Password.Read(CNUserPassword);
                 this.FinishInteraction();
@@ -93,6 +103,12 @@ namespace RSVForTagPrint.ViewModels
 
             this.OKCommand = new DelegateCommand(() =>
                 {
+                    Properties.Settings.Default.FmwwHostName = Preference.HostName;
+                    Properties.Settings.Default.FmwwAccessKeyId = Preference.Group;
+                    Properties.Settings.Default.FmwwUserName = Preference.User;
+                    Properties.Settings.Default.VirgoApiUri = Preference.ApiServer;
+                    Properties.Settings.Default.Save();
+
                     Password.Save(CNGroupPassword, this.Preference.GroupPassword);
                     Password.Save(CNUserPassword, this.Preference.UserPassword);
 
