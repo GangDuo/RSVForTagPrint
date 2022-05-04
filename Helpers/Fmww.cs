@@ -12,10 +12,21 @@ namespace RSVForTagPrint.Helpers
     {
         public static void Upload(string fullName)
         {
-            var uploader = new M.PriceTag.New.Page();
-            if (uploader.CanExecute(fullName))
+            FMWW.Core.Config.Instance.HostName = Preferences.AsString(Preferences.HostName);
+            var uploader = new M.PriceTag.New.Page()
             {
-                uploader.Execute(fullName);
+                UserAccount = new FMWW.Entity.UserAccount()
+                {
+                    UserName = Preferences.AsString(Preferences.AccessKeyId),
+                    Person = Preferences.AsString(Preferences.UserName),
+                    Password = Preferences.AsString(Preferences.CNGroupPassword),
+                    PersonPassword = Preferences.AsString(Preferences.CNUserPassword)
+                },
+                PathShiftJis = fullName
+            };
+            if (uploader.CanExecute(null))
+            {
+                uploader.Execute(null);
                 Console.WriteLine(String.Format("source = {0}\n{1}\n------------------------------------",
                     fullName, uploader.ResultMessage));
             }
