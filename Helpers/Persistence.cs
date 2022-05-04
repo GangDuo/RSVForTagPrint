@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -17,12 +18,7 @@ namespace RSVForTagPrint.Helpers
             /// <returns>作成された公開鍵(XML形式)</returns>
             public static string CreatePubKeyIn(string containerName)
             {
-                //CspParametersオブジェクトの作成
-                var cp = new System.Security.Cryptography.CspParameters();
-                //キーコンテナ名を指定する
-                cp.KeyContainerName = containerName;
-                //CspParametersを指定してRSACryptoServiceProviderオブジェクトを作成
-                var rsa = new System.Security.Cryptography.RSACryptoServiceProvider(cp);
+                var rsa = NewRSACryptoServiceProvider(containerName);
 
                 //公開鍵をXML形式で取得して返す
                 return rsa.ToXmlString(false);
@@ -36,13 +32,7 @@ namespace RSVForTagPrint.Helpers
             /// <returns>復号化された文字列</returns>
             public static string Decrypt(string str, string containerName)
             {
-                //CspParametersオブジェクトの作成
-                var cp = new System.Security.Cryptography.CspParameters();
-                //キーコンテナ名を指定する
-                cp.KeyContainerName = containerName;
-                //CspParametersを指定してRSACryptoServiceProviderオブジェクトを作成
-                System.Security.Cryptography.RSACryptoServiceProvider rsa =
-                    new System.Security.Cryptography.RSACryptoServiceProvider(cp);
+                var rsa = NewRSACryptoServiceProvider(containerName);
 
                 //復号化する
                 byte[] data = System.Convert.FromBase64String(str);
@@ -56,16 +46,22 @@ namespace RSVForTagPrint.Helpers
             /// <param name="containerName">キーコンテナ名</param>
             public static void DeleteKeys(string containerName)
             {
-                //CspParametersオブジェクトの作成
-                var cp = new System.Security.Cryptography.CspParameters();
-                //キーコンテナ名を指定する
-                cp.KeyContainerName = containerName;
-                //CspParametersを指定してRSACryptoServiceProviderオブジェクトを作成
-                var rsa = new System.Security.Cryptography.RSACryptoServiceProvider(cp);
+                var rsa = NewRSACryptoServiceProvider(containerName);
 
                 //キーコンテナを削除
                 rsa.PersistKeyInCsp = false;
                 rsa.Clear();
+            }
+
+            private static RSACryptoServiceProvider NewRSACryptoServiceProvider(string containerName)
+            {
+                //CspParametersオブジェクトの作成
+                var cp = new CspParameters();
+                cp.Flags = CspProviderFlags.UseMachineKeyStore;
+                //キーコンテナ名を指定する
+                cp.KeyContainerName = containerName;
+                //CspParametersを指定してRSACryptoServiceProviderオブジェクトを作成
+                return new RSACryptoServiceProvider(cp);
             }
         }
 
@@ -77,7 +73,7 @@ namespace RSVForTagPrint.Helpers
         public static void CreateKeys(out string publicKey, out string privateKey)
         {
             //RSACryptoServiceProviderオブジェクトの作成
-            var rsa = new System.Security.Cryptography.RSACryptoServiceProvider();
+            var rsa = new RSACryptoServiceProvider();
 
             //公開鍵をXML形式で取得
             publicKey = rsa.ToXmlString(false);
@@ -94,7 +90,7 @@ namespace RSVForTagPrint.Helpers
         public static string Encrypt(string str, string publicKey)
         {
             //RSACryptoServiceProviderオブジェクトの作成
-            var rsa = new System.Security.Cryptography.RSACryptoServiceProvider();
+            var rsa = new RSACryptoServiceProvider();
 
             //公開鍵を指定
             rsa.FromXmlString(publicKey);
@@ -118,7 +114,7 @@ namespace RSVForTagPrint.Helpers
         public static string Decrypt(string str, string privateKey)
         {
             //RSACryptoServiceProviderオブジェクトの作成
-            var rsa = new System.Security.Cryptography.RSACryptoServiceProvider();
+            var rsa = new RSACryptoServiceProvider();
 
             //秘密鍵を指定
             rsa.FromXmlString(privateKey);
