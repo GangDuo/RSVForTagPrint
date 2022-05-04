@@ -26,9 +26,6 @@ namespace RSVForTagPrint.ViewModels
         public DelegateCommand OKCommand { get; private set; }
         public DelegateCommand CancelCommand { get; private set; }
 
-        private static string CNGroupPassword = "GroupPassword";
-        private static string CNUserPassword = "UserPassword";
-
         public PreferenceViewModel()
         {
             this.Preference = new Models.Preference()
@@ -37,8 +34,8 @@ namespace RSVForTagPrint.ViewModels
                 Group = Properties.Settings.Default.FmwwAccessKeyId,
                 User = Properties.Settings.Default.FmwwUserName,
                 ApiServer = Properties.Settings.Default.VirgoApiUri,
-                GroupPassword = Password.Read(CNGroupPassword),
-                UserPassword = Password.Read(CNUserPassword),
+                GroupPassword = Password.Read(Preferences.CNGroupPassword),
+                UserPassword = Password.Read(Preferences.CNUserPassword),
             };
 
             this.CancelCommand = new DelegateCommand(() =>
@@ -48,8 +45,8 @@ namespace RSVForTagPrint.ViewModels
                 Preference.User = Properties.Settings.Default.FmwwUserName;
                 Preference.ApiServer = Properties.Settings.Default.VirgoApiUri;
 
-                Preference.GroupPassword = Password.Read(CNGroupPassword);
-                Preference.UserPassword = Password.Read(CNUserPassword);
+                Preference.GroupPassword = Password.Read(Preferences.CNGroupPassword);
+                Preference.UserPassword = Password.Read(Preferences.CNUserPassword);
                 this.FinishInteraction();
             });
 
@@ -61,8 +58,8 @@ namespace RSVForTagPrint.ViewModels
                     Properties.Settings.Default.VirgoApiUri = Preference.ApiServer;
                     Properties.Settings.Default.Save();
 
-                    Password.Save(CNGroupPassword, this.Preference.GroupPassword);
-                    Password.Save(CNUserPassword, this.Preference.UserPassword);
+                    Password.Save(Preferences.CNGroupPassword, this.Preference.GroupPassword);
+                    Password.Save(Preferences.CNUserPassword, this.Preference.UserPassword);
 
                     this.FinishInteraction();
                 });
