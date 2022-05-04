@@ -75,6 +75,10 @@ namespace RSVForTagPrint.ViewModels
                 {
                     Console.WriteLine(e.Message);
                 }
+                catch (FileNotFoundException e)
+                {
+                    return String.Empty;
+                }
                 throw new Exception();
             }
         }
@@ -87,6 +91,8 @@ namespace RSVForTagPrint.ViewModels
                 Group = Properties.Settings.Default.FmwwAccessKeyId,
                 User = Properties.Settings.Default.FmwwUserName,
                 ApiServer = Properties.Settings.Default.VirgoApiUri,
+                GroupPassword = Password.Read(CNGroupPassword),
+                UserPassword = Password.Read(CNUserPassword),
             };
 
             this.CancelCommand = new DelegateCommand(() =>
