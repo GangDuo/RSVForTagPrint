@@ -49,13 +49,13 @@
                Content="-" />
         <TextBox Grid.Row="2" Grid.Column="3"
                  x:Name="textBox2"
-                 Text="{Binding Preference.GroupPassword, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                 Text="{Binding Preference.User, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
 
         <Label Grid.Row="4" Grid.Column="0"
                Content="UserPass" />
         <TextBox Grid.Row="4" Grid.Column="1"
                  x:Name="textBox3"
-                 Text="{Binding Preference.User, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                 Text="{Binding Preference.GroupPassword, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
         <Label Grid.Row="4" Grid.Column="2"
                Content="-" />
         <TextBox Grid.Row="4" Grid.Column="3"
