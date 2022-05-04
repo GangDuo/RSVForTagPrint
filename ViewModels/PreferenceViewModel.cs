@@ -87,13 +87,14 @@ namespace RSVForTagPrint.ViewModels
             {
                 Debug.WriteLine("CancelCommand");
                 Preference.GroupPassword = Password.Read(CNGroupPassword);
+                Preference.UserPassword = Password.Read(CNUserPassword);
                 this.FinishInteraction();
             });
 
             this.OKCommand = new DelegateCommand(() =>
                 {
                     Password.Save(CNGroupPassword, this.Preference.GroupPassword);
-                    Helpers.Persistence.Container.DeleteKeys(CNGroupPassword);
+                    Password.Save(CNUserPassword, this.Preference.UserPassword);
 
                     this.FinishInteraction();
                 });
