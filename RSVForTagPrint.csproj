@@ -93,6 +93,7 @@
     </ApplicationDefinition>
     <Compile Include="ApplicationCommandsBehavior.cs" />
     <Compile Include="Helpers\Fmww.cs" />
+    <Compile Include="Helpers\Password.cs" />
     <Compile Include="Helpers\Persistence.cs" />
     <Compile Include="Helpers\Process.cs" />
     <Compile Include="Helpers\TouchPanel.cs" />
