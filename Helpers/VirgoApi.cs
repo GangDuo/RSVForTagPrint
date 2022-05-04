@@ -9,7 +9,14 @@ namespace RSVForTagPrint.Helpers
 {
     class VirgoApi
     {
-        private static readonly string HomeUrl = Environment.GetEnvironmentVariable("VIRGO_API_URI");
+        private string HomeUrl
+        {
+            get
+            {
+                return Preferences.GetVariable(Preferences.VirgoApiUri) as string;
+            }
+        }
+
         public List<string> UniqueJanCodes { get; private set; }
 
         private List<Models.Tag> RawSource { get; set; }

@@ -37,5 +37,19 @@ namespace RSVForTagPrint.Models
             get { return this._UserPassword; }
             set { this.SetProperty(ref this._UserPassword, value); }
         }
+
+        private string _HostName;
+        public string HostName
+        {
+            get { return this._HostName; }
+            set { this.SetProperty(ref this._HostName, value); }
+        }
+
+        private string _ApiServer;
+        public string ApiServer
+        {
+            get { return this._ApiServer; }
+            set { this.SetProperty(ref this._ApiServer, value); }
+        }
     }
 }

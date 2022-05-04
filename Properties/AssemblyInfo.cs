@@ -10,9 +10,9 @@ using System.Windows;
 [assembly: AssemblyTitle("RSVForTagPrint")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("Microsoft")]
+[assembly: AssemblyCompany("HumptyDumpty")]
 [assembly: AssemblyProduct("RSVForTagPrint")]
-[assembly: AssemblyCopyright("Copyright © Microsoft 2017")]
+[assembly: AssemblyCopyright("Copyright © HumptyDumpty 2017")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
