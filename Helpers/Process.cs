@@ -47,9 +47,9 @@ namespace RSVForTagPrint.Helpers
                 DateTime.Today.Month,
                 DateTime.Today.Day,
                 code,
-                Preferences.GetVariable("FmwwHostName"),
-                Preferences.GetVariable("FmwwAccessKeyId"),
-                Preferences.GetVariable("FmwwUserName"),
+                Preferences.GetVariable(Preferences.HostName),
+                Preferences.GetVariable(Preferences.AccessKeyId),
+                Preferences.GetVariable(Preferences.UserName),
                 Preferences.GetVariable(Preferences.CNGroupPassword),
                 Preferences.GetVariable(Preferences.CNUserPassword)
             );

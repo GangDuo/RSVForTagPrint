@@ -13,7 +13,7 @@ namespace RSVForTagPrint.Helpers
         {
             get
             {
-                return Preferences.GetVariable("VirgoApiUri") as string;
+                return Preferences.GetVariable(Preferences.VirgoApiUri) as string;
             }
         }
 
