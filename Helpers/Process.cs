@@ -47,11 +47,11 @@ namespace RSVForTagPrint.Helpers
                 DateTime.Today.Month,
                 DateTime.Today.Day,
                 code,
-                Environment.GetEnvironmentVariable("FMWW_HOST_NAME"),
-                Environment.GetEnvironmentVariable("FMWW_ACCESS_KEY_ID"),
-                Environment.GetEnvironmentVariable("FMWW_USER_NAME"),
-                Environment.GetEnvironmentVariable("FMWW_SECRET_ACCESS_KEY"),
-                Environment.GetEnvironmentVariable("FMWW_PASSWORD")
+                Preferences.GetVariable("FmwwHostName"),
+                Preferences.GetVariable("FmwwAccessKeyId"),
+                Preferences.GetVariable("FmwwUserName"),
+                Preferences.GetVariable(Preferences.CNGroupPassword),
+                Preferences.GetVariable(Preferences.CNUserPassword)
             );
             Console.WriteLine(String.Format("印刷ｺｰﾄﾞ = {0}", code));
             using (var hProcess = System.Diagnostics.Process.Start(new System.Diagnostics.ProcessStartInfo()
