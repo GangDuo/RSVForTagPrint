@@ -30,5 +30,10 @@ namespace RSVForTagPrint.Helpers
 
             return Password.Read(variable);
         }
+
+        public static string AsString(string variable)
+        {
+            return (string)GetVariable(variable);
+        }
     }
 }
