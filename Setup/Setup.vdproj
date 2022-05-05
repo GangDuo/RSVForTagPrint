@@ -2773,7 +2773,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:RSVForTagPrint"
         "ProductCode" = "8:{5A6854A1-1C54-497C-9479-4C68D49D7AE1}"
-        "PackageCode" = "8:{E1EC3DAE-E1AB-4F88-B584-8DC9F1FC9142}"
+        "PackageCode" = "8:{30947CE5-5431-4FF0-9057-576DA589AAA7}"
         "UpgradeCode" = "8:{01AFF247-06E7-40B8-B921-85B7631B877F}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
@@ -2893,6 +2893,20 @@
         }
         "Shortcut"
         {
+            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_0AEBAA7A8C5E42F9ADF5C57BE3E0B94D"
+            {
+            "Name" = "8:cpop予約印刷"
+            "Arguments" = "8:"
+            "Description" = "8:"
+            "ShowCmd" = "3:1"
+            "IconIndex" = "3:0"
+            "Transitive" = "11:FALSE"
+            "Target" = "8:_785F7A16CAE245C9AEEDF15A4F542275"
+            "Folder" = "8:_55B37A0B9EB04F359A07B3ECA42856BE"
+            "WorkingFolder" = "8:_8A2B3D64804640A0BBD54C6D7B435DB5"
+            "Icon" = "8:"
+            "Feature" = "8:"
+            }
         }
         "UserInterface"
         {
