@@ -11,7 +11,10 @@ namespace RSVForTagPrint.Models
     sealed class Environment
     {
         private static readonly Encoding SjisEnc = Encoding.GetEncoding("Shift_JIS");
-        private static readonly string HistoryFile = @".histories";
+        private static readonly string WorkDir = Path.Combine(
+            System.Environment.GetFolderPath(System.Environment.SpecialFolder.UserProfile),
+            ".RSVForTagPrint");
+        private static readonly string HistoryFile = Path.Combine(WorkDir, ".histories");
         public ObservableCollection<Models.Job> Histories { get; private set; }
 
         private static Environment _singleInstance = new Environment();
@@ -46,6 +49,8 @@ namespace RSVForTagPrint.Models
 
         private void Initialize()
         {
+            Directory.CreateDirectory(WorkDir);
+
             using (var sr = new StreamReader(HistoryFile, SjisEnc))
             {
                 var text = sr.ReadToEnd();
