@@ -13,7 +13,7 @@ namespace RSVForTagPrint.Models
         private static readonly Encoding SjisEnc = Encoding.GetEncoding("Shift_JIS");
         private static readonly string WorkDir = Path.Combine(
             System.Environment.GetFolderPath(System.Environment.SpecialFolder.UserProfile),
-            ".RSVForTagPrint");
+            $".{System.Reflection.Assembly.GetExecutingAssembly().GetName().Name}");
         private static readonly string HistoryFile = Path.Combine(WorkDir, ".histories");
         public ObservableCollection<Models.Job> Histories { get; private set; }
 
