@@ -177,6 +177,12 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_5E07D44326D34600996F5D11183BBEA1"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_626FB8247820DF33930160A4DC4CF9FD"
         "OwnerKey" = "8:_785F7A16CAE245C9AEEDF15A4F542275"
         "MsmSig" = "8:_UNDEFINED"
@@ -1507,6 +1513,26 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_5E07D44326D34600996F5D11183BBEA1"
+            {
+            "SourcePath" = "8:..\\Resources\\shortcut.ico"
+            "TargetName" = "8:shortcut.ico"
+            "Tag" = "8:"
+            "Folder" = "8:_8A2B3D64804640A0BBD54C6D7B435DB5"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_626FB8247820DF33930160A4DC4CF9FD"
             {
             "AssemblyRegister" = "3:1"
@@ -2773,7 +2799,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:RSVForTagPrint"
         "ProductCode" = "8:{5A6854A1-1C54-497C-9479-4C68D49D7AE1}"
-        "PackageCode" = "8:{30947CE5-5431-4FF0-9057-576DA589AAA7}"
+        "PackageCode" = "8:{73ED68D6-5DBD-4B26-90D5-E33E5677CA40}"
         "UpgradeCode" = "8:{01AFF247-06E7-40B8-B921-85B7631B877F}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
@@ -2904,7 +2930,7 @@
             "Target" = "8:_785F7A16CAE245C9AEEDF15A4F542275"
             "Folder" = "8:_55B37A0B9EB04F359A07B3ECA42856BE"
             "WorkingFolder" = "8:_8A2B3D64804640A0BBD54C6D7B435DB5"
-            "Icon" = "8:"
+            "Icon" = "8:_5E07D44326D34600996F5D11183BBEA1"
             "Feature" = "8:"
             }
         }
